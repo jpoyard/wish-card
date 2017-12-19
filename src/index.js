@@ -7,7 +7,11 @@ import './index.scss';
 
     const width = 600,
         height = 700,
-        types = ['text', 'text', 'text', 'progress'],
+        greenColors = [
+            '#9EE4B', '#0A6030', '#0C783C', '#0F964B',
+            '#13BC5E', '#42C97E', '#68D498', '#86DDAD'
+        ].reverse(),
+        types = ['text', 'text', 'text', 'text', 'progress'],
         stages = [
             "Agilité", "Scrum", "Kanban", "TDD",
             "Software Craftsmanship", "UML", "SysML",
@@ -19,10 +23,9 @@ import './index.scss';
             "Solr", "Elastic Search", "PostgreSQL", "MySQL",
             "HTML5", "SEO", "UX Design", "JavaScript", "TypeScript",
             "VueJS", "NodeJS", "AngularJS", "Angular", "ReactJS",
-            "Mobile Design", "Android", "Kotlin",
-            "Swift", "Xamarin", "Ionic", "PhoneGap Cordova",
-            "Java", "Java EE", "JSF", "Primefaces",
-            "Struts2", "Spring", "Vaadin", "OSGi",
+            "Mobile Design", "Android", "Swift", "Xamarin",
+            "Ionic", "PhoneGap Cordova", "Java", "Java EE",
+            "JSF", "Primefaces", "Struts2", "Spring", "Vaadin", "OSGi",
             "Eclipse RCP", "JPA", "Hibernate", "Birt", "Liferay",
             "Smalltalk", "Kotlin", "C++", "C#", "Python", "Go",
             "Groovy & Grails", "Drools", "XML", "XSLT",
@@ -34,9 +37,9 @@ import './index.scss';
             "Weblogic", "GlassFish", "Tomcat"
         ];
     const quantity = stages.length;
-    const orderedStages = stages.sort((a,b)=>a.length-b.length).reverse();
-
-    console.info(orderedStages)
+    const orderedStages = stages.sort((a, b) => a.length - b.length);
+    const heigthStack = height / quantity;
+    const colorStack = quantity / greenColors.length;
 
     const tree = document.querySelector('.tree'),
         treeRotation = 0;
@@ -53,7 +56,9 @@ import './index.scss';
             stage = orderedStages[i]; //stages[Math.floor(Math.random() * stages.length)];
 
         let x = width / 2,
-            y = Math.round(Math.random() * height);
+            //y = Math.round(Math.random() * height);
+            y = i * heigthStack;
+        let backcolor = greenColors[Math.floor(i / colorStack)];
 
         let rx = 0,
             ry = Math.random() * 360,
@@ -70,9 +75,10 @@ import './index.scss';
             case 'text':
             default:
                 element = document.createElement('div');
-                element.innerText = stage;
+                element.innerHTML = stage;
                 element.style.width = elemenWidth + 'px';
                 element.style.height = elemenHeight + 'px';
+                element.style.backgroundColor = backcolor;
         }
 
         element.className = "branch";
