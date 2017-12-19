@@ -64,7 +64,7 @@ $dotRadius: 6px;
     }
 }
 
-$sphereRadius: 500;
+$sphereRadius: 250;
 $colors: (#FFF, #FFF);
 @for $i from 1 through 400 {
     $theta: random() * 360;

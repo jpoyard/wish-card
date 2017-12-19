@@ -5,8 +5,8 @@ import './index.scss';
         element.style.transform = value;
     }
 
-    const width = 600,
-        height = 700,
+    const width = 300,
+        height = 350,
         greenColors = [
             '#9EE4B', '#0A6030', '#0C783C', '#0F964B',
             '#13BC5E', '#42C97E', '#68D498', '#86DDAD'
