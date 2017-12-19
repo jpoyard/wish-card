@@ -8,7 +8,7 @@ import './index.scss';
     const width = 600,
         height = 700,
         types = ['text', 'text', 'text', 'progress'],
-        greetings = [
+        stages = [
             "Agilité", "Scrum", "Kanban", "TDD",
             "Software Craftsmanship", "UML", "SysML",
             "Enterprise Architect",
@@ -33,7 +33,10 @@ import './index.scss';
             "Websphere", "Wildfly", "Jboss",
             "Weblogic", "GlassFish", "Tomcat"
         ];
-    const quantity = greetings.length;
+    const quantity = stages.length;
+    const orderedStages = stages.sort((a,b)=>a.length-b.length).reverse();
+
+    console.info(orderedStages)
 
     const tree = document.querySelector('.tree'),
         treeRotation = 0;
@@ -47,7 +50,7 @@ import './index.scss';
     for (let i = 0; i < quantity; i++) {
         let element = null,
             type = types[Math.floor(Math.random() * types.length)],
-            greeting = greetings[Math.floor(Math.random() * greetings.length)];
+            stage = orderedStages[i]; //stages[Math.floor(Math.random() * stages.length)];
 
         let x = width / 2,
             y = Math.round(Math.random() * height);
@@ -67,7 +70,7 @@ import './index.scss';
             case 'text':
             default:
                 element = document.createElement('div');
-                element.innerText = greeting;
+                element.innerText = stage;
                 element.style.width = elemenWidth + 'px';
                 element.style.height = elemenHeight + 'px';
         }
