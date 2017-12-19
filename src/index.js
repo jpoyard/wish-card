@@ -87,28 +87,6 @@ import './index.scss';
         tree.appendChild(element);
     }
 
-    // The snow
-    // for (var i = 0; i < 200; i++) {
-    //     var element = document.createElement('input');
-    //     element.setAttribute('type', 'radio');
-
-    //     var spread = width * 2;
-
-    //     var x = Math.round(Math.random() * spread) - (spread / 4),
-    //         y = Math.round(Math.random() * height),
-    //         z = Math.round(Math.random() * spread) - (spread / 2);
-
-    //     var rx = 0,
-    //         ry = Math.random() * 360,
-    //         rz = 0;
-
-    //     if (Math.random() > 0.5) element.setAttribute('checked', '');
-
-    //     transform(element, 'translate3d(' + x + 'px, ' + y + 'px, ' + z + 'px) rotateX(' + rx + 'deg) rotateY(' + ry + 'deg) rotateZ(' + rz + 'deg)');
-
-    //     tree.appendChild(element);
-    // }
-
     const resize = () => {
         tree.style.top = ((window.innerHeight - height - 100) / 2) + 'px';
     }
