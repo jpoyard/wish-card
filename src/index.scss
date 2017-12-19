@@ -1,3 +1,4 @@
+@import "node_modules/mathsass/dist/_math.scss";
 div.card {
     overflow: hidden;
     font-family: Helvetica, Arial, sans-serif;
@@ -42,11 +43,62 @@ div.card {
     }
 }
 
+$dotRadius: 6px;
+.particle {
+    position: absolute;
+    top: calc(50% - #{$dotRadius});
+    left: calc(50% - #{$dotRadius});
+}
+
+.particle {
+    transform-style: preserve-3d;
+    &:before {
+        content: "";
+        width: $dotRadius * 2;
+        height: $dotRadius * 2;
+        position: absolute;
+        background: currentColor;
+        border-radius: 50%;
+        animation: spin 18s infinite linear reverse, blink 6s infinite linear;
+        box-shadow: 0 0 10px currentColor;
+    }
+}
+
+$sphereRadius: 500;
+$colors: (#FFF, #FFF);
+@for $i from 1 through 400 {
+    $theta: random() * 360;
+    $phi: (1 - sqrt(random())) * 90;
+    @if random()>0.5 {
+        $phi: $phi * -1;
+    }
+    $x: $sphereRadius * cos($theta) * cos($phi);
+    $y: $sphereRadius * sin($phi);
+    $z: $sphereRadius * sin($theta) * cos($phi);
+    .particle:nth-child(#{$i}) {
+        transform: translate3d($x+px, $y+px, $z+px);
+        $colorIndex: ceil(random() * 2);
+        color: nth($colors, $colorIndex);
+        &:before {
+            animation-delay: 0s, -($i/400)*6s;
+        }
+    }
+}
+
 @keyframes spin {
     0% {
         transform: rotateY( 0deg);
     }
     100% {
         transform: rotateY( 360deg);
+    }
+}
+
+@keyframes blink {
+    5% {
+        box-shadow: 0 0 10px 6px currentColor;
+    }
+    10% {
+        box-shadow: 0 0 10px 0px currentColor;
     }
 }
