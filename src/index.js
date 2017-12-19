@@ -1,4 +1,4 @@
-import './index.css';
+import './index.scss';
 
 (function () {
     const transform = (element, value) => {

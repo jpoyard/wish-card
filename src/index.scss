@@ -26,22 +26,19 @@ div.tree {
     margin: 0 auto;
     position: relative;
     animation: spin 18s infinite linear;
-}
-
-div.tree * {
-    position: absolute;
-    transform-origin: 0 0;
-}
-
-div.tree div.branch {
-    text-align: center;
-    color: white;
-    line-height: 22px;
-    vertical-align: middle;
-    background-color: #0a4f0a;
-    overflow: hidden;
-}
-
-div.tree progress.branch {
-    box-shadow: 0 1px 0 rgba(255,255,255,.2);       
+    * {
+        position: absolute;
+        transform-origin: 0 0;
+    }
+    div.branch {
+        text-align: center;
+        color: white;
+        line-height: 22px;
+        vertical-align: middle;
+        background-color: #0a4f0a;
+        overflow: hidden;
+    }
+    progress.branch {
+        box-shadow: 0 1px 0 rgba(255, 255, 255, .2);
+    }
 }
