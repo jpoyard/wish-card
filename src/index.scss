@@ -47,7 +47,7 @@ div.card {
         position: absolute;
         left:0;
         right: 0;
-        bottom: 10px;
+        bottom: 40px;
         text-align: center;
         font-size: 70px;
         font-family: 'Gloria Hallelujah', cursive;
@@ -57,7 +57,7 @@ div.card {
     }
 }
 
-$dotRadius: 4px;
+$dotRadius: 3px;
 .particle {
     position: absolute;
     top: calc(50% - #{$dotRadius});
@@ -78,7 +78,7 @@ $dotRadius: 4px;
     }
 }
 
-$sphereRadius: 250;
+$sphereRadius: 260;
 $colors: (#FFF, #FFF);
 @for $i from 1 through 400 {
     $theta: random() * 360;
