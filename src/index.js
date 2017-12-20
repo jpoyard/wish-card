@@ -5,8 +5,8 @@ import './index.scss';
         element.style.transform = value;
     }
 
-    const width = 300,
-        height = 350,
+    const width = 350,
+        height = 400,
         greenColors = [
             '#9EE4B', '#0A6030', '#0C783C', '#0F964B',
             '#13BC5E', '#42C97E', '#68D498', '#86DDAD'
@@ -88,7 +88,7 @@ import './index.scss';
     }
 
     const resize = () => {
-        tree.style.top = ((window.innerHeight - height - 100) / 2) + 'px';
+        tree.style.top = ((window.innerHeight - height - 50 ) / 2) + 'px';
     }
 
     resize();
